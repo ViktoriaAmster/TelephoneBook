@@ -1,4 +1,6 @@
-from data_base import read_contact,rewrite
+from data_base import read_contact
+import csv
+from pathlib import Path
 
 def data_To_List():
     list_of_contact = []
@@ -6,6 +8,13 @@ def data_To_List():
     for i in temp_list:
         list_of_contact.append(i.split('\n'))
     return list_of_contact
+
+def list_to_str(data_list: list):
+    temp_list =[]
+    for i in range(len(data_list)):
+            temp_list.append('\n'.join(data_list[i]))
+    temp_str = '\n\n'.join(temp_list)
+    return temp_str
 
 def search(data_list: list):
     find_contact = input('Data for search: ')
@@ -38,21 +47,37 @@ def correction_data(data_list: list):
         print('Wrong number! Enter number before ":" ')
     else:
         print('What do you want to change?')
-        while (num := int(input('0-Name, 1-Surname, 2-Number'))) not in range(3):
+        while (num := int(input('0-Name, 1-Surname, 2-Number:  '))) not in range(3):
             print('Wrong command!')
         else:
             data_list[key_][num] = input('Enter correct data: ')
     return data_list
 
-def import_file(file_name):
-    with open(file_name, 'r') as data:
-        str_data = data.read()
+def import_file(file_name: str):
+    if (Path(file_name).suffix) == '.csv':
+        list_of_contact = []
+        with open(file_name) as data:
+            reader = csv.reader(data, delimiter= find_delimetr(file_name))
+            for row in reader:
+                list_of_contact.append(row)
+        str_data = list_to_str(list_of_contact)
+    else:
+        with open(file_name, 'r') as data:
+            str_data = data.read()
     str_first_data = read_contact()
     new_list_of_contact = []
-    list_of_contact = (str_first_data + str_data).split('\n\n')
+    list_of_contact = (str_first_data + '\n\n' + str_data).split('\n\n')
     list_of_contact = set(list_of_contact)
     list_of_contact = list(list_of_contact)
     for i in list_of_contact:
         new_list_of_contact.append(i.split('\n'))
-    new_list_of_contact.append([''])
     return new_list_of_contact
+
+def sort_ (data_list: list):
+    data_list.sort()
+    return(data_list)
+
+def find_delimetr(file_name: str):
+    with open(file_name) as data:
+        delimetr = csv.Sniffer().sniff(data.read(5000)).delimiter
+    return delimetr
