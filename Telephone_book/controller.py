@@ -17,7 +17,6 @@ def redactor():
         if str_in == "1":
             print('')
             rewrite(sort_(correction_data(data_To_List())))
-            # return redactor()
         elif str_in == "2":
             write_contact()
             rewrite(sort_(data_To_List()))

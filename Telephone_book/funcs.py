@@ -1,6 +1,7 @@
 from data_base import read_contact
 import csv
 from pathlib import Path
+from prettytable import prettytable
 
 def data_To_List():
     list_of_contact = []
