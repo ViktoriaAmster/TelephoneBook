@@ -1,20 +1,20 @@
-from data_base import read_contact
+from data_base import read_contact, list_to_str
 import csv
 from pathlib import Path
 
-def data_To_List():
-    list_of_contact = []
-    temp_list = read_contact().split('\n\n')
-    for i in temp_list:
-        list_of_contact.append(i.split('\n'))
-    return list_of_contact
+# def data_To_List():
+#     list_of_contact = []
+#     temp_list = read_contact().split('\n\n')
+#     for i in temp_list:
+#         list_of_contact.append(i.split('\n'))
+#     return list_of_contact
 
-def list_to_str(data_list: list):
-    temp_list =[]
-    for i in range(len(data_list)):
-            temp_list.append('\n'.join(data_list[i]))
-    temp_str = '\n\n'.join(temp_list)
-    return temp_str
+# def list_to_str(data_list: list):
+#     temp_list =[]
+#     for i in range(len(data_list)):
+#             temp_list.append('\n'.join(data_list[i]))
+#     temp_str = '\n\n'.join(temp_list)
+#     return temp_str
 
 def search(data_list: list):
     find_contact = input('Data for search: ')
