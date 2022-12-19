@@ -37,4 +37,3 @@ def search(data_list: list):
 def sort_ (data_list: list):
     data_list.sort()
     return(data_list)
-

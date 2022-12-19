@@ -22,7 +22,7 @@ def redactor():
             write_contact()
             rewrite(list_to_str(sort_(data_To_List())))
         elif str_in == "3":
-            rewrite(delete_contact(data_To_List()))
+            rewrite(list_to_str(delete_contact(data_To_List())))
         elif str_in == "4":
             search(data_To_List())
         elif str_in == "5":
