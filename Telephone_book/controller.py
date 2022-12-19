@@ -1,5 +1,6 @@
-from data_base import write_contact, print_tablbook, rewrite, data_To_List
-from funcs import search, delete_contact, import_file, correction_data, sort_, list_to_str
+from data_base import data_To_List, list_to_str, write_contact, rewrite, print_tablbook 
+from funcs_book import import_file, search,  sort_
+from funcs_contact import correction_data, delete_contact
 
 def redactor():
     while True:
@@ -16,7 +17,7 @@ def redactor():
         str_in = input()
         if str_in == "1":
             print('')
-            rewrite(sort_(correction_data(data_To_List())))
+            rewrite(list_to_str(sort_(correction_data(data_To_List()))))
         elif str_in == "2":
             write_contact()
             rewrite(list_to_str(sort_(data_To_List())))

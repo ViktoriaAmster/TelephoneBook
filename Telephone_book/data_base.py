@@ -33,11 +33,6 @@ def rewrite(data_str: str):
     with open('dataBase.txt', 'w') as data:
         data.write(data_str)
 
-def conclusion_contact():
-    with open('dataBase.txt', 'r') as data:
-        print('=====================')
-        return print(data.read())
-
 def print_tablbook():
     mylist = data_To_List() 
     x = PrettyTable(["Name", "Surname", "Number"])
@@ -45,3 +40,9 @@ def print_tablbook():
         ", ".join(mylist[i])
         x.add_row(mylist[i])  
     print(x)
+
+# def conclusion_contact():
+#     with open('dataBase.txt', 'r') as data:
+#         print('=====================')
+#         return print(data.read())
+
