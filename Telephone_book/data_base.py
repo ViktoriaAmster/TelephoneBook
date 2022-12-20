@@ -25,9 +25,6 @@ def write_contact():
             data.write(f'{name}\n{surname}\n{number}')
         else:
             data.write(f'\n\n{name}\n{surname}\n{number}')
-            # data.write('\n\n' + input('Fill a name: ') + '\n')
-            # data.write(input('Fill a surname: ') + '\n')
-            # data.write(input('Fill a telephone number: '))
 
 def read_contact():
     with open('dataBase.txt', 'r') as data:

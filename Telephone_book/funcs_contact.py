@@ -3,12 +3,6 @@ from data_base import data_To_List
 from funcs_book import search
 
 def correction_data(contact_: str):
-    # # data_for_search = input('Enter name: ')
-    # dict_for_search = {}
-    # for i in range(len(data_list)):
-    #     if data_for_search in data_list[i]:
-    #         dict_for_search[i] = data_list[i]
-    # print(dict_for_search)
     dict_for_search = search(data_To_List(), contact_)
     data_list = data_To_List()
     if len(dict_for_search) != 0: 

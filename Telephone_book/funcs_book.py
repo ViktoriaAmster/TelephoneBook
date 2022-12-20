@@ -1,7 +1,6 @@
 from data_base import read_contact, list_to_str
 import csv
 from pathlib import Path
-from logger import logger_
 
 def find_delimetr(file_name: str):
     with open(file_name) as data:
@@ -29,12 +28,6 @@ def import_file(file_name: str):
     return new_list_of_contact
 
 def search(data_list: list, find_contact: str):
-    # find_contact = input('Data for search: ')
-    # logger_(f"Поиск контакта {find_contact}")
-    # for i in range(len(data_list)):
-    #     for j in range(len(data_list[i])):
-    #         if find_contact.lower() in data_list[i][j].lower():
-    #             print(data_list[i])
     dict_for_search = {}
     for i in range(len(data_list)):
         if find_contact in data_list[i]:
