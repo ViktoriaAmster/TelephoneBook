@@ -44,9 +44,3 @@ def print_tablbook():
         ", ".join(mylist[i])
         x.add_row(mylist[i])  
     print(x)
-
-# def conclusion_contact():
-#     with open('dataBase.txt', 'r') as data:
-#         print('=====================')
-#         return print(data.read())
-

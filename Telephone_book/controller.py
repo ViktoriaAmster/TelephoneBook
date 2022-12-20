@@ -17,15 +17,18 @@ def redactor():
               ''')
         str_in = input()
         if str_in == "1":
-            print('')
-            rewrite(list_to_str(sort_(correction_data(data_To_List()))))
+            our_contact = input('Enter data for change: ')
+            rewrite(list_to_str(sort_(correction_data(our_contact))))
         elif str_in == "2":
             write_contact()
             rewrite(list_to_str(sort_(data_To_List())))
         elif str_in == "3":
-            rewrite(list_to_str(delete_contact(data_To_List())))
+            our_contact = input('Enter data for delete: ')
+            rewrite(list_to_str(delete_contact(our_contact)))
         elif str_in == "4":
-            search(data_To_List())
+            our_contact = input('Enter data for search: ')
+            logger_(f'Поиск контакта {our_contact}')
+            search(data_To_List(), our_contact)
         elif str_in == "5":
             logger_('Просмотр списка контактов')
             print_tablbook()

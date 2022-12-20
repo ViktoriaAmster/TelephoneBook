@@ -28,13 +28,22 @@ def import_file(file_name: str):
         new_list_of_contact.append(i.split('\n'))
     return new_list_of_contact
 
-def search(data_list: list):
-    find_contact = input('Data for search: ')
-    logger_(f"Поиск контакта {find_contact}")
+def search(data_list: list, find_contact: str):
+    # find_contact = input('Data for search: ')
+    # logger_(f"Поиск контакта {find_contact}")
+    # for i in range(len(data_list)):
+    #     for j in range(len(data_list[i])):
+    #         if find_contact.lower() in data_list[i][j].lower():
+    #             print(data_list[i])
+    dict_for_search = {}
     for i in range(len(data_list)):
-        for j in range(len(data_list[i])):
-            if find_contact.lower() in data_list[i][j].lower():
-                print(data_list[i])
+        if find_contact in data_list[i]:
+            dict_for_search[i] = data_list[i]
+    if len(dict_for_search) == 0:
+        print('No such contact!')
+    else:
+        print(dict_for_search)
+    return dict_for_search
 
 def sort_ (data_list: list):
     data_list.sort()
