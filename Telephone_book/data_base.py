@@ -1,4 +1,5 @@
 from prettytable import PrettyTable
+from logger import logger_
 
 def data_To_List():
     list_of_contact = []
@@ -16,14 +17,17 @@ def list_to_str(data_list: list):
 
 def write_contact():
     with open('dataBase.txt', 'r+') as data:
+        name = input('Fill a name: ')
+        surname = input('Fill a surname: ')
+        number = input('Fill a telephone number: ')
+        logger_(f'Добавление контакта {name} {surname} {number}')
         if data.read() == '':
-            data.write(input('Fill a name: ') + '\n')
-            data.write(input('Fill a surname: ') + '\n')
-            data.write(input('Fill a telephone number: '))
+            data.write(f'{name}\n{surname}\n{number}')
         else:
-            data.write('\n\n' + input('Fill a name: ') + '\n')
-            data.write(input('Fill a surname: ') + '\n')
-            data.write(input('Fill a telephone number: '))
+            data.write(f'\n\n{name}\n{surname}\n{number}')
+            # data.write('\n\n' + input('Fill a name: ') + '\n')
+            # data.write(input('Fill a surname: ') + '\n')
+            # data.write(input('Fill a telephone number: '))
 
 def read_contact():
     with open('dataBase.txt', 'r') as data:

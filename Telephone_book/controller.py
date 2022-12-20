@@ -1,6 +1,7 @@
 from data_base import data_To_List, list_to_str, write_contact, rewrite, print_tablbook 
 from funcs_book import import_file, search,  sort_
 from funcs_contact import correction_data, delete_contact
+from logger import logger_
 
 def redactor():
     while True:
@@ -26,9 +27,11 @@ def redactor():
         elif str_in == "4":
             search(data_To_List())
         elif str_in == "5":
+            logger_('Просмотр списка контактов')
             print_tablbook()
         elif str_in == "6":
             text = input('Введите путь к файлу: ')
+            logger_(f'Импорт контактов из файла {text}')
             rewrite(list_to_str(sort_(import_file(text)))) 
         elif str_in == "7":
             break
